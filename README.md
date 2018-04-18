@@ -11,7 +11,7 @@ vumasms.com][signup]. This is currently a beta release, see [contributing](#cont
  * [Obtaining Api Keys](#obtaining-api-keys)
  * [Usage](#usage)
  * [Examples](#examples)
- * [Coverage](#api-coverage)
+ * [VumaSMS Laravel](#laravel)
  * [Contributing](#contributing) 
 
 Installation
