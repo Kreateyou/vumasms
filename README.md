@@ -90,9 +90,15 @@ Add  the VumaSMS provider in your Providers
 ```
 Publish the Service provider as follow
 ```bash
-  php artisan vendor:publish --provider = "Vumasms\Laravel\Providers\ServiceProvider::class"
+  php artisan vendor:publish --provider "Vumasms\Laravel\Providers\ServiceProvider"
 ```
 on your config folder locate the vumasms.php config change the key & secret configuration
+if your are usine .env configuration add your keys and secret in your .env file as follows
+```bash
+       # VUMA SETTINGS
+        VUMA_API_KEY=<KEY>
+        VUMA_API_SECRET=<SECRET>
+```
 To send SMS in laravel is as follows
 ```php
     app("vumasms")->send($messageBag),
