@@ -8,7 +8,7 @@ This is the PHP client library for use VumaSMS's API. To use this, you'll need a
 vumasms.com][signup]. This is currently a beta release, see [contributing](#contributing) for more information.
 
  * [Installation](#installation)
- * [Obtaining Api Keys](#installation)
+ * [Obtaining Api Keys](#obtaining-api-keys)
  * [Usage](#usage)
  * [Examples](#examples)
  * [Coverage](#api-coverage)
@@ -54,7 +54,7 @@ Examples
 
 ### Sending A Message
 
-To use [VumaSMS's SMS API][doc_sms] to send an SMS message, call the `$client->send()` method.
+To use [VumaSMS's SMS API][doc_sms_link] to send an SMS message, call the `$client->send()` method.
 
 The API can be called directly, using a simple array of parameters, the keys are as follows.
 ```bash
@@ -78,7 +78,7 @@ $message = $client->send($messageBag);
 The API response json data can be is as follows. 
 
 ```php
-{"success":true,"details":{"type":"outbox","status":"queued","payload":{"to":["254723681977"],"message":"Your verification code for FARMSHINE is 3434  \n","sender":"FARMSHINE","scheduled_date":null,"scheduled_type":null},"created_by":"17","scheduled_at":null,"updated_at":"2018-04-18 10:14:22","created_at":"2018-04-18 10:14:22","sid":"36"}};
+{"success":true,"details":{"type":"outbox","status":"queued","payload":{"to":["2547XXXXXX"],"message":"Your verification code for PROJECT is 3434  \n","sender":"VUMA","scheduled_date":null,"scheduled_type":null},"created_by":"17","scheduled_at":null,"updated_at":"2018-04-18 10:14:22","created_at":"2018-04-18 10:14:22","sid":"36"}};
 ```
     
 Laravel
@@ -112,3 +112,4 @@ This library is released under the [MIT License][license]
 [signup]: https://www.vumasms.com/account/signup
 [license]: LICENSE.txt
 [signin]: https://www.vumasms.com/account/login
+[doc_sms_link]: #
