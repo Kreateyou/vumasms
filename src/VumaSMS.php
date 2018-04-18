@@ -2,7 +2,7 @@
 namespace Vumasms;
 use Vumasms\Lib\Helper; 
 use Vumasms\Lib\VumaApi;
-
+use Vumasms\Lib\VumaException;
 
 class VumaSMS extends VumaApi{
   
@@ -15,12 +15,14 @@ class VumaSMS extends VumaApi{
 
   public function withFile($filePath='')
   {
+
   	if(file_exists($filePath)){
-           $this->data['file_contents'] = "@$filePath";
+          $this->data['file_contents'][] = "$filePath";
   	 }else{
   	 	throw new VumaException("Error Processing Request", 1);
   	 	
   	 }
+     return $this;
   }
   public function compose($template)
   {
@@ -34,35 +36,43 @@ class VumaSMS extends VumaApi{
   public function attachFile($filePath='')
   {
   	 if(file_exists($filePath)){
-           $this->data['file_contents'] = "@$filePath";
+           $this->data['file_contents'][] = "$filePath";
   	 }else{
   	 	throw new VumaException("Error Processing Request", 1);
   	 	
   	 }
   	 return $this;
   }
-  public function send($messageBags="")
+  public function send($messageBags=null)
   {
   	if(!is_null($messageBags)){
-       $this->data['payload'] = $messageBags;
-       return post_to_url("sms/send");
+      if(!isset($messageBags['scheduled_date'])){
+ 
+         $messageBags['scheduled_date'] = null;
+      }
+      if(!isset($messageBags['scheduled_type'])){
+
+        $messageBags['scheduled_type'] =null;
+      }      
+       $this->data['payload'] = json_encode($messageBags);
+       return $this->post_to_url("send/sms");
   	}else{
-  	   return post_to_url("sms/file");
+  	   return $this->post_to_url("sms/send/file");
   	}
   	
   }
   public function balance($config)
   {
-  	return post_to_url("account/balance");
+  	return $this->post_to_url("account/balance");
   }
   public function importContact($contacts=[],$group="")
   {
   	$this->data['group'] = $group;
-  	if(empty($contacts){
+  	if(empty($contacts)){
         $this->data['contacts'] = $contacts;	  	
-	  	return post_to_url("contact/import");
+	  	return $this->post_to_url("contact/import");
      }else{
-     	return post_to_url("contact/import/file");
+     	return $this->post_to_url("contact/import/file");
      }
   }
 }
