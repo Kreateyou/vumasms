@@ -27,10 +27,10 @@ composer require kreateyou/vumasms
 ```
 Obtaining Api Keys
 -----
-Loggin to your [VumaSMS account][signin].
-Click on Setting on the left side menu
-Click on Generate API credentials button
-Save the Key and Secret on you app
+* Loggin to your [VumaSMS account][signin].
+* Click on Setting on the left side menu
+* Click on Generate API credentials button
+* Save the Key and Secret on you app
 NOTE: vumaSMS will not store the api key or credentials it will generate new key every time please save the key for later use
 
 
