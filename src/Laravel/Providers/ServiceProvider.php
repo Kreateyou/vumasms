@@ -21,7 +21,7 @@ class ServiceProvider extends BaseServiceProvider
 	}
     protected function mapApiRoutes()
     {
-      $this->app['router']->any('vumasms/callback', $this->namespace.'Callback@act');
+      $this->app['router']->post('vumasms/callback', $this->namespace.'Callback@act');
     }
 
 	 /**
